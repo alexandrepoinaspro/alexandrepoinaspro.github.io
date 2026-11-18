@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="CV en ligne d'Alexandre Poinas, dirigeant industriel.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Alexandre Poinas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : fiche technique d'ingénieur — colonne d'identité à gauche, parcours chronologique à droite, bandeau de chiffres clés */
+:root{
+  --bg:#f3f5f7; --paper:#ffffff; --ink:#18212b; --muted:#5a6673; --line:#d8dee5;
+  --accent:#1f4e79; --accent-soft:#e3ecf5; --mark:#b5651d;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1419; --paper:#161d24; --ink:#e6ebf0; --muted:#97a3af; --line:#2a343e;
+  --accent:#7fb0de; --accent-soft:#1c2b3a; --mark:#e0a060; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1419; --paper:#161d24; --ink:#e6ebf0; --muted:#97a3af; --line:#2a343e;
+  --accent:#7fb0de; --accent-soft:#1c2b3a; --mark:#e0a060; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px}
+.sheet{max-width:1080px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+
+/* En-tête */
+header.top{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding:36px 40px 28px;border-bottom:1px solid var(--line)}
+.photo{width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:50% 22%;border:3px solid var(--accent-soft)}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(2rem,4.2vw,2.9rem);line-height:1.05;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1 .last{text-transform:uppercase}
+.roles{font-family:var(--f-display);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:10px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px}
+.roles span+span::before{content:"";display:inline-block;width:5px;height:5px;background:var(--mark);margin-right:14px;vertical-align:middle;transform:translateY(-1px)}
+.summary{margin:14px 0 0;color:var(--ink);text-align:justify}
+.summary strong{font-weight:600}
+
+/* Chiffres clés */
+.figures{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--line)}
+.fig{padding:18px 16px;border-right:1px solid var(--line);min-width:0}
+.fig:last-child{border-right:0}
+.fig b{display:block;font-family:var(--f-display);font-weight:700;font-size:1.55rem;line-height:1.1;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fig small{display:block;font-size:.82rem;color:var(--muted);line-height:1.3;margin-top:4px}
+
+/* Corps */
+.body{display:grid;grid-template-columns:330px 1fr}
+aside{padding:28px 28px 36px 40px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:28px;min-width:0}
+main{padding:28px 40px 40px 36px;min-width:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:flex;align-items:center;gap:10px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.contact{display:flex;flex-direction:column;gap:10px}
+.c-row{display:flex;align-items:center;gap:8px;min-width:0}
+.c-row .val{font-size:.93rem;overflow-wrap:anywhere;user-select:all;min-width:0;flex:1}
+.c-row a.val{color:var(--accent);text-decoration:none}
+.c-row a.val:hover{text-decoration:underline}
+.lbl{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);width:46px;flex:none;text-transform:uppercase;letter-spacing:.05em}
+button.copy{font:500 .7rem var(--f-mono);color:var(--accent);background:transparent;border:1px solid var(--line);border-radius:3px;padding:3px 7px;cursor:pointer;flex:none}
+button.copy:hover{background:var(--accent-soft)}
+button.copy:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.tags li{font-size:.85rem;background:var(--accent-soft);color:var(--ink);padding:3px 9px;border-radius:3px}
+.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.plain .k{font-weight:600}
+.edu{display:flex;flex-direction:column;gap:12px}
+.edu div{font-size:.93rem;line-height:1.35}
+.edu b{display:block;font-weight:600}
+.edu span{color:var(--muted)}
+
+/* Parcours */
+.company{padding:0 0 26px;margin:0 0 26px;border-bottom:1px solid var(--line)}
+.company:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.co-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.co-name{font-family:var(--f-display);font-weight:700;font-size:1.22rem;margin:0}
+.co-place{font-size:.9rem;color:var(--muted)}
+.co-desc{font-size:.92rem;color:var(--muted);margin:4px 0 0;max-width:72ch}
+.co-meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}
+.co-meta li{font-family:var(--f-mono);font-size:.74rem;border:1px solid var(--line);border-radius:3px;padding:2px 7px;color:var(--ink)}
+.role{margin-top:16px;padding-left:16px;border-left:2px solid var(--accent-soft)}
+.role-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px;align-items:baseline}
+.role h3{font-family:var(--f-display);font-weight:600;font-size:1.02rem;margin:0;color:var(--accent)}
+.date{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.role p{margin:6px 0 0;max-width:72ch}
+.role ul{margin:8px 0 0;padding-left:18px;max-width:72ch}
+.role li{margin:5px 0}
+.role li::marker{color:var(--mark)}
+.role li strong{font-weight:600}
+
+footer.foot{border-top:1px solid var(--line);padding:16px 40px;font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+
+@media (max-width:900px){
+  .figures{grid-template-columns:repeat(3,1fr)}
+  .fig:nth-child(3){border-right:0}
+  .fig:nth-child(-n+3){border-bottom:1px solid var(--line)}
+  .body{grid-template-columns:1fr}
+  aside{border-right:0;border-bottom:1px solid var(--line);padding:24px 28px}
+  main{padding:24px 28px 32px}
+}
+@media (max-width:560px){
+  body{padding-block:0}
+  .sheet{border-radius:0;border-left:0;border-right:0}
+  header.top{grid-template-columns:1fr;padding:24px 20px 20px;gap:16px}
+  .photo{width:96px;height:96px}
+  .roles{flex-direction:column;gap:4px}
+  .roles span+span::before{display:none}
+  .figures{grid-template-columns:repeat(2,1fr)}
+  .fig{border-bottom:1px solid var(--line)}
+  .fig:nth-child(odd){border-right:1px solid var(--line)}
+  .fig:nth-child(even){border-right:0}
+  .fig:nth-child(n+5){border-bottom:0}
+  aside,main{padding:20px}
+  .role{padding-left:12px}
+  footer.foot{padding:14px 20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="sheet">
+  <header class="top">
+    <img class="photo" src="data:image/jpeg;base64,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" alt="Portrait d'Alexandre Poinas">
+    <div>
+      <h1>Alexandre <span class="last">Poinas</span></h1>
+      <p class="roles"><span>Direction technique</span><span>Direction des opérations</span><span>Direction générale</span></p>
+      <p class="summary"><strong>Dirigeant industriel</strong>, <strong>ingénieur INSA Lyon</strong> et <strong>Executive MBA</strong>, <strong>25 ans d'expérience internationale</strong> sur toute la <strong>chaîne de valeur</strong>, de la conception à la livraison d'<strong>équipements complexes</strong>, en environnements réglementés (<strong>Nucléaire, Défense, Oil &amp; Gas</strong>), dans les <strong>véhicules industriels</strong> et la <strong>distribution B2B</strong>. <strong>Membre de Codir</strong>, je pilote la <strong>performance globale</strong> (<strong>P&amp;L, Supply Chain, R&amp;D, Production</strong>) et j'aligne l'<strong>outil technique</strong> sur la <strong>stratégie business</strong>. Ma <strong>légitimité</strong> repose sur la capacité à <strong>comprendre, arbitrer, poser un cadre</strong> et <strong>faire grandir les équipes</strong>, au plus près du <strong>terrain</strong> et des <strong>clients</strong>.</p>
+    </div>
+  </header>
+
+  <section class="figures" aria-label="Chiffres clés">
+    <div class="fig"><b>25 ans</b><small>d'expérience industrielle</small></div>
+    <div class="fig"><b>100</b><small>collaborateurs managés</small></div>
+    <div class="fig"><b>12→23 M€</b><small>croissance du CA chez EXO</small></div>
+    <div class="fig"><b>0→9 M€</b><small>filiale France créée chez SAMPA</small></div>
+    <div class="fig"><b>12 M€</b><small>projet d'entrepôt automatisé</small></div>
+    <div class="fig"><b>500 k€/an</b><small>gains en Design to Cost</small></div>
+  </section>
+
+  <div class="body">
+    <aside>
+      <section>
+        <h2>Contact</h2>
+        <div class="contact">
+          <div class="c-row"><span class="lbl">Tél.</span><span class="val" id="tel" style="white-space:nowrap">+33 6 75 68 16 04</span><button class="copy" type="button" data-copy="tel">Copier</button></div>
+          <div class="c-row"><span class="lbl">Email</span><span class="val" id="mail">alexandre.poinas@gmail.com</span><button class="copy" type="button" data-copy="mail">Copier</button></div>
+          <div class="c-row"><span class="lbl">Lien</span><a class="val" href="https://www.linkedin.com/in/alexandre-poinas/" target="_blank" rel="noopener">LinkedIn · alexandre-poinas</a></div>
+          <div class="c-row"><span class="val"><strong>Mobilité :</strong> France et International</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Expertises</h2>
+        <ul class="tags">
+          <li>Management d'équipes</li><li>Transformation &amp; Performance</li><li>Gestion de P&amp;L</li>
+          <li>Supply Chain</li><li>Industrialisation</li><li>R&amp;D</li><li>BU Management</li>
+          <li>Leadership stratégique</li><li>Exécution</li><li>Orientation résultats</li><li>Esprit collectif</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Formation</h2>
+        <div class="edu">
+          <div><b>EM Lyon Business School</b>Executive MBA <span>· en cours</span></div>
+          <div><b>INSA de Lyon</b>Ingénieur mécanique et conception <span>· 2004</span></div>
+          <div><b>IUT</b>DUT Génie Mécanique et Productique <span>· 1995</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Outils</h2>
+        <ul class="tags"><li>SAP</li><li>Power BI</li><li>Excel</li><li>MS Project</li><li>Office</li><li>CAO 3D</li></ul>
+      </section>
+
+      <section>
+        <h2>Langues</h2>
+        <ul class="plain"><li><span class="k">Français</span> · langue maternelle</li><li><span class="k">Anglais</span> · courant</li></ul>
+      </section>
+
+      <section>
+        <h2>Centres d'intérêt</h2>
+        <ul class="plain"><li>Volley-ball, trail, krav maga</li><li>Concerts</li><li>Vespa</li></ul>
+      </section>
+    </aside>
+
+    <main>
+      <h2>Expériences professionnelles</h2>
+
+      <article class="company">
+        <div class="co-head"><h3 class="co-name">SAMPA Filiale France</h3><span class="co-place">Corbas, France</span></div>
+        <p class="co-desc">Filiale de distribution d'un équipementier mondial, spécialisé dans la fabrication de pièces de rechange pour véhicules industriels.</p>
+        <ul class="co-meta"><li>Effectif 15 (groupe 5 000)</li><li>CA 9 M€ (groupe 400 M€)</li><li>Membre du Codir</li></ul>
+        <div class="role">
+          <div class="role-head"><h3>Directeur Opérationnel</h3><span class="date">2019 – 2025</span></div>
+          <p>Membre de l'équipe fondatrice de la filiale France, j'ai structuré l'outil opérationnel de A à Z, permettant de passer d'une page blanche à une structure délivrant 9 M€ de chiffre d'affaires, en sécurisant l'ensemble de la chaîne logistique.</p>
+          <ul>
+            <li><strong>Design organisationnel :</strong> structuration intégrale de l'organisation opérationnelle, administrative et technique ; accompagnement de la montée en compétences des équipes transverses.</li>
+            <li><strong>Pilotage et management :</strong> direction des opérations et architecture des flux (14 000 références) pour garantir la performance globale de la chaîne de valeur.</li>
+            <li><strong>Stratégie Capex &amp; infrastructure :</strong> pilotage de la faisabilité, de la conception d'un entrepôt automatisé (budget de 12 M€), intégrant le bâtiment, le système Miniload, le WMS et des équipements.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="company">
+        <div class="co-head"><h3 class="co-name">EXO International</h3><span class="co-place">Ternay, France</span></div>
+        <p class="co-desc">Fabricant de matériel de levage et de manutention pour l'industrie pétrolière Offshore, le nucléaire et le militaire, à destination de clients internationaux.</p>
+        <ul class="co-meta"><li>Effectif 120</li><li>CA 12 → 23 M€</li><li>Membre du Codir</li></ul>
+        <div class="role">
+          <div class="role-head"><h3>Directeur technique et industriel</h3><span class="date">2014 – 2019</span></div>
+          <p>Direction globale des services techniques de l'entreprise pour concevoir et fabriquer des équipements de haute sécurité. Structuration des services pour répondre à la croissance du chiffre d'affaires, de 12 à 23 M€.</p>
+          <ul>
+            <li><strong>Direction technique et bureau d'études :</strong> management d'équipes pluridisciplinaires (100 personnes) dédiées à l'ingénierie et à l'assemblage de systèmes ATEX. Structuration de la capacité technique et d'expertise pour soutenir la croissance du chiffre d'affaires.</li>
+            <li><strong>Refonte organisationnelle &amp; transformation :</strong> pilotage de la transition d'une structure technique en silos vers une organisation matricielle. Centralisation du savoir-faire par le déploiement d'une architecture PLM, couplée à un plan de formation pour élever l'expertise métier, fluidifier la synergie inter-services et renforcer le soutien technique aux équipes commerciales.</li>
+            <li><strong>Gestion du P&amp;L &amp; pilotage économique :</strong> direction d'un portefeuille de projets complexes, garantissant la maîtrise des budgets et la protection des marges, de la conception à la livraison finale, dans un alignement constant avec la satisfaction client.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <div class="role-head"><h3>Chef de groupe Projets</h3><span class="date">2014</span></div>
+          <ul>
+            <li><strong>Gestion des contrats et des risques :</strong> direction d'une équipe de 5 chefs de projet, avec mise en place de mécanismes de contrôle des coûts et de suivi de l'avancement pour éviter les dépassements de budget et protéger les projets.</li>
+            <li>Support technique et arbitrage.</li>
+            <li>Instauration et application de procédures opérationnelles rigoureuses par défaut.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="company">
+        <div class="co-head"><h3 class="co-name">AXLETECH International</h3><span class="co-place">Saint-Étienne, France</span></div>
+        <p class="co-desc">Fabricant mondial d'essieux, de ponts, de composants de pont, de roues indépendantes et de boîtes de transfert pour véhicules off-highway.</p>
+        <ul class="co-meta"><li>Effectif 400</li><li>CA 350 M€</li></ul>
+        <div class="role">
+          <div class="role-head"><h3>Chef de projets, Chargé d'affaires</h3><span class="date">2010 – 2014</span></div>
+          <ul>
+            <li>Ingénierie et déploiement de solutions techniques pour répondre aux exigences des clients et aux objectifs de rentabilité.</li>
+            <li>Gestion de projets, du prototype à la production en série.</li>
+            <li>Interlocuteur technique direct auprès des clients.</li>
+            <li>Support au service commercial.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <div class="role-head"><h3>Ingénieur Analyse de la valeur – Design to Cost</h3><span class="date">2007 – 2010</span></div>
+          <ul>
+            <li>Conception de solutions techniques afin de réduire les coûts produits (gain de 500 k€/an).</li>
+            <li>Support aux différents services dans le chiffrage et la mise en place de nouvelles solutions.</li>
+            <li>Mise en place de protocoles de validation fournisseurs.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="company">
+        <div class="co-head"><h3 class="co-name">IRISBUS France (Renault VI)</h3><span class="co-place">Vénissieux, France</span></div>
+        <p class="co-desc">Société internationale offrant une gamme complète de véhicules de transport en commun.</p>
+        <div class="role">
+          <div class="role-head"><h3>Responsable d'équipe en bureau d'études</h3><span class="date">2004 – 2007</span></div>
+          <ul>
+            <li>Exécution et suivi de programmes et d'évolutions techniques sur une gamme de véhicules.</li>
+            <li>Management transverse et pilotage de la résolution des sujets SAV.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <div class="role-head"><h3>Architecte Véhicule</h3><span class="date">1998 – 2004</span></div>
+          <ul>
+            <li>Architecte véhicule sur les fonctions pneumatiques, servo-direction et électriques.</li>
+            <li>Conception, gestion et développement des fonctions et des éléments de structure.</li>
+          </ul>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <footer class="foot"><span>Alexandre Poinas · Cadre dirigeant industriel</span><span>Nucléaire · Défense · Oil &amp; Gas · Véhicules industriels</span></footer>
+</div>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy), txt=el.textContent.trim();
+    function done(){var o=b.textContent;b.textContent='Copié';setTimeout(function(){b.textContent=o},1400)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Sélectionné';setTimeout(function(){b.textContent='Copier'},1400)}
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+
+</body>
+</html>
